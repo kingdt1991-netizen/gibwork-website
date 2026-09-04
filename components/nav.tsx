@@ -13,9 +13,11 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FADE_IN, FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import { Separator } from "./ui/separator";
+import { useReferralAppUrl } from "@/lib/use-referral-app-url";
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const appUrl = useReferralAppUrl();
 
   return (
     <>
@@ -73,7 +75,7 @@ export function Nav() {
             </div>
 
             <Button asChild className="group">
-              <Link href={siteConfig.appUrl} target="_blank">
+              <Link href={appUrl} target="_blank">
                 Open App
                 <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
               </Link>
@@ -109,7 +111,7 @@ export function Nav() {
 
                 <div className="flex items-center gap-2">
                   <Button asChild className="group">
-                    <Link href={siteConfig.appUrl} target="_blank">
+                    <Link href={appUrl} target="_blank">
                       Open App
                       <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
                     </Link>
