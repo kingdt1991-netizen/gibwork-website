@@ -6,9 +6,11 @@ import Ripple from "./ui/ripple";
 import { motion } from "framer-motion";
 import { FADE_UP_ANIMATION_VARIANTS } from "@/lib/framer-variants";
 import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
+import { useReferralAppUrl } from "@/lib/use-referral-app-url";
 
 export function CTA() {
+  const appUrl = useReferralAppUrl();
+
   return (
     <motion.section
       initial="hidden"
@@ -39,7 +41,7 @@ export function CTA() {
 
       <motion.div variants={FADE_UP_ANIMATION_VARIANTS}>
         <Button asChild className="mt-8 group">
-          <Link href={siteConfig.appUrl} target="_blank">
+          <Link href={appUrl} target="_blank">
             Get Started
             <ArrowRight className="size-0 group-hover:size-5 transition-all -ml-2 group-hover:ml-0" />
           </Link>
